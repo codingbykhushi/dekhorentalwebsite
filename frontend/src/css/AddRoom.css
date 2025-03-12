@@ -1,0 +1,77 @@
+.containerRoom {
+    width: 70%;
+    height: auto;
+    margin: 5% auto; 
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+  
+  .containerRoom form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .containerRoom label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #444;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .containerRoom input,
+  .containerRoom textarea,
+  .containerRoom select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .containerRoom textarea {
+    resize: vertical;
+    min-height: 60px;
+  }
+  
+  .containerRoom input[type="file"] {
+    border: none;
+    padding: 5px;
+  }
+  
+  .containerRoom button {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 50%;
+  }
+  
+  .containerRoom button:hover {
+    background: #0056b3;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .containerRoom {
+      width: 80%;
+    }
+  }

@@ -1,0 +1,141 @@
+/* General Styles */
+.home-container {
+    height: 100vh;
+    width: 100%;
+    
+  
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    /* Ensure padding does not affect width */
+}
+
+.overlay {
+   
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    /* Ensure padding does not affect width */
+}
+
+/* Card Styles */
+.card {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.card-img-top {
+    border-bottom: 2px solid #ddd;
+}
+
+.card-body {
+    padding: 15px;
+    background: #fff;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #3399cc;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #287aa4;
+}
+
+/* Search Bar Styles */
+.search-bar-container {
+    display: flex;
+    flex-direction: row;
+    /* Align items in a row */
+    gap: 10px;
+    /* Space between input fields */
+    width: 100%;
+    max-width: 100%;
+    /* Maximum width for the container */
+    margin-bottom: 20px;
+    padding: 10px;
+    /* Add padding to avoid input fields touching edges */
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Slightly transparent background for a modern look */
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Light shadow for depth */
+}
+
+.search-input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 500px;
+    /* Set width for consistency */
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-input:focus {
+    border-color: #3399cc;
+    box-shadow: 0 0 8px rgba(51, 153, 204, 0.2);
+    outline: none;
+}
+
+.search-input::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .search-bar-container {
+        flex-direction: column;
+        /* Stack inputs vertically on smaller screens */
+        gap: 10px;
+        /* Increased space between inputs */
+    }
+
+    .card {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .home-container {
+        padding: 10px;
+    }
+
+    .card-body {
+        padding: 10px;
+    }
+
+    .search-input {
+        font-size: 14px;
+        width: 100%;
+        /* Full width for smaller screens */
+    }
+
+    .btn-primary {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}

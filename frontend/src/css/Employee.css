@@ -1,0 +1,90 @@
+/* Container for the whole AddEmployee page with background image */
+.Container-Employee {
+  background-image: url("../img/adminplannelbg.png"); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Form container styling */
+.employee-container {
+  background: rgba(255, 255, 255, 0.9); /* semi-transparent white background */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 100%;
+  margin-left: 500px; /* For larger screens, shift to left if desired */
+}
+
+/* For medium & smaller screens, center the container */
+@media (max-width: 1200px) {
+  .employee-container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Heading styling */
+.employee-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Form elements styling */
+.employee-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.employee-container input[type="text"],
+.employee-container input[type="email"],
+.employee-container input[type="password"],
+.employee-container input[type="number"],
+.employee-container textarea,
+.employee-container select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* Button styling */
+.employee-container button {
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.employee-container button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive adjustments for very small screens */
+@media (max-width: 576px) {
+  .employee-container {
+    padding: 20px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .employee-container input,
+  .employee-container button {
+    font-size: 0.9rem;
+  }
+}

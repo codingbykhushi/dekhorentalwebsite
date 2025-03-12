@@ -1,0 +1,116 @@
+.admin-containerAd {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.admin-titleAd {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Grid Layout for Cards */
+.card-containerAd {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Smaller Cards */
+  gap: 15px;
+  justify-content: center;
+}
+
+/* Card Styling */
+.cardAd {
+  width: 220px; /* Adjust width for smaller size */
+  padding: 10px; /* Less padding */
+  border-radius: 8px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  text-align: center;
+  background: #fff;
+}
+
+/* .cardAd:hover {
+  transform: scale(1.03);
+} */
+
+.cardAd h2 {
+  margin-bottom: 8px;
+}
+
+.cardHov p{
+  color: #000000;
+}
+
+.cardAd p {
+  font-size: 14px; /* Smaller Text */
+  margin: 4px 0;
+}
+
+/* Footer Buttons */
+.cardAd-footer {
+  /* display: flex; */
+  /* justify-content: space-around; */
+  /* margin-top: 10px; */
+}
+
+button {
+  /* width: 100px; */
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  padding: 6px 10px;
+  font-size: 12px; /* Smaller Button */
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:first-child {
+  
+  background-color: #007bff;
+  color: white;
+}
+
+button:last-child {
+ 
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Error Message */
+.error-message {
+  color: red;
+  font-weight: bold;
+}
+
+/* Edit Modal */
+.edit-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  width: 250px;
+}
+
+.edit-modal h2 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.edit-modal input {
+  width: 100%;
+  padding: 6px;
+  margin: 6px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}

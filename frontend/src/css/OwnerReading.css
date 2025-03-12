@@ -1,0 +1,55 @@
+
+.owner-readings-container {
+    max-width: 90%;
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+
+  .owner-readings-container h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+
+  .owner-readings-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .owner-readings-table th, 
+  .owner-readings-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+  }
+  
+ 
+  .owner-readings-table th {
+    background-color: #262729;
+    color: white;
+    font-weight: bold;
+  }
+  
+
+  .owner-readings-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  } 
+  
+
+  .owner-readings-table tbody tr:hover {
+    background-color: #dfe6e9;
+    cursor: pointer;
+  }
+  
+
+  .no-readings-message {
+    color: red;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  

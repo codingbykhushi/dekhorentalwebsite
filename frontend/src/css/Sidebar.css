@@ -1,0 +1,78 @@
+/* Base Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: white;
+    min-height: 100vh;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    /* Desktop View: Sidebar is always visible */
+    transform: translateX(0);
+  }
+  
+  /* Sidebar Title */
+  .sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Sidebar List */
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin: 15px 0;
+    text-align: center;
+  }
+  
+  .sidebar ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .logout-btn {
+    width: 100%;
+    padding: 10px;
+    background: #e74c3c;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  /* Hamburger Icon */
+  .hamburger {
+    display: none; /* By default hidden (desktop) */
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 24px;
+    color: #2c3e50;
+    cursor: pointer;
+    z-index: 999;
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    /* Sidebar hidden by default on mobile */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%); /* Slide out of view */
+      z-index: 999;
+    }
+    /* If sidebar has 'open' class, show it */
+    .sidebar.open {
+      transform: translateX(0);
+    }
+  
+    /* Hamburger visible on mobile */
+    .hamburger {
+      display: block;
+    }
+  }
+  
