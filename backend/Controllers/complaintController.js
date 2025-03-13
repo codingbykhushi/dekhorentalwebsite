@@ -13,7 +13,6 @@ const createComplaint = async (req, res) => {
       return res.status(400).json({ success: false, message: "PG not found" });
     }
 
-    
     const room = await RoomsAvailable.findOne({
       where: { name: RoomName, roomNumber: roomNumber, pgId: pg.id },
     });
