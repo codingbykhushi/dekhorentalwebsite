@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 import TenantHome from "./TenantHome";
 import TenantsLoginRooms from "./tenantLoginRooms";
-import TenantSidebar from "../Component/TenantSidebar";
+// import TenantSidebar from "../Component/TenantSidebar";
 import ComplaintForm from "./Complainttenant";
 import ProfilePage from "./ProfileTenant.js";
 import TenantReadings from "./TenantReading.js";
@@ -17,7 +17,7 @@ import MyComplaints from "./TenantCompliant.js";
 const TenantDashboard = () => {
   return (
     <div className="admin-dashboard">
-      <TenantSidebar />
+      {/* <TenantSidebar /> */}
       <div className="admin-content">
         <Routes>
           <Route path="/" element={<TenantHome />} />

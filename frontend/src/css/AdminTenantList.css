@@ -1,50 +1,27 @@
-.container {
-    max-width: 95%;
-    margin-top: 20px;
+.table-responsive {
+  overflow-x: auto; /* ✅ Small screens ke liye horizontal scrolling */
+}
+
+.tenant-table {
+  color: orange yellow;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tenant-table th, td {
+  white-space: nowrap; /* ✅ Text wrap hone se rokta hai */
+  padding: 10px;
+  text-align: left;
+}
+
+.tenant-table th {
+  background-color: rgb(243, 201, 17);
+  color: black;
+}
+
+@media (max-width: 768px) {
+  th, td {
+    font-size: 14px;
+    padding: 8px;
   }
-  
-  h2 {
-    text-align: center;
-    font-size: 28px;
-    font-weight: bold;
-    color: #444;
-    margin-bottom: 20px;
-  }
-  
-  .table {
-    border-collapse: separate;
-    border-spacing: 0;
-    width: 100%;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  th {
-    background: linear-gradient(135deg, #e3d10a, #dbdb0b);
-    color: white;
-    text-align: center;
-    font-weight: bold;
-    padding: 12px;
-  }
-  
-  td {
-    text-align: center;
-    padding: 10px;
-    color: #333;
-    background-color: #fff;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  tr:hover td {
-    background: #f4f4f4;
-  }
-  
-  th:first-child, td:first-child {
-    border-radius: 10px 0 0 10px;
-  }
-  
-  th:last-child, td:last-child {
-    border-radius: 0 10px 10px 0;
-  }
-  
+}

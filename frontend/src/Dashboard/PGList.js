@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Card, Button, Container, Row, Col, Form } from "react-bootstrap";
 
 const PGList = () => {
   const [pgs, setPgs] = useState([]);
@@ -89,74 +90,90 @@ const PGList = () => {
   };
 
   return (
-    <div className="container mt-4">
-      <h2>PG List</h2>
-      <div className="row">
+    <Container className="mt-4">
+      <h2 className="text-center mb-4">PG Listings</h2>
+      <Row>
         {pgs.map((pg) => (
-          <div key={pg.id} className="col-md-4">
-            <div className="card mb-4 shadow-sm">
-              <img
+          <Col key={pg.id} md={4} className="mb-4">
+            <Card className="shadow-sm border-0 rounded">
+              <Card.Img
+                variant="top"
                 src={pg.img}
-                className="card-img-top"
                 alt={pg.pgName}
-                style={{ height: "200px", objectFit: "cover" }}
+                style={{ height: "200px", objectFit: "cover", borderRadius: "10px 10px 0 0" }}
                 onError={(e) => {
-                  e.target.style.display = "none";
+                  e.target.src = "https://via.placeholder.com/200"; // Default image
                 }}
               />
-              <div className="card-body">
-                <p className="card-text"><strong>PG ID:</strong> {pg.id}</p>
-                <p className="card-text"><strong>Owner ID:</strong> {pg.OwnerId}</p>
-                <p className="card-text"><strong>PG Name:</strong> {pg.pgName}</p>
-                <p className="card-text"><strong>Address:</strong> {pg.address}</p>
-                <p className="card-text"><strong>Total Rooms:</strong> {pg.totalRooms}</p>
-
-                <button className="btn btn-primary me-2" onClick={() => navigate(`rooms/${pg.id}`)}>
-                  View Details
-                </button>
-
-                <button className="btn btn-warning me-2" onClick={() => setEditPG(pg.id)}>
-                  Edit
-                </button>
-
-                <button className="btn btn-danger" onClick={() => handleDelete(pg.id)}>
-                  Delete
-                </button>
-              </div>
-            </div>
-          </div>
+              <Card.Body>
+                <Card.Title className="text-primary">{pg.pgName}</Card.Title>
+                <Card.Text>
+                <strong>Owner Name:</strong> {pg.name} <br />
+                  <strong>Owner ID:</strong> {pg.OwnerId} <br />
+                  <strong>Address:</strong> {pg.address} <br />
+                  <strong>Total Rooms:</strong> {pg.totalRooms}
+                </Card.Text>
+                <div className="d-flex justify-content-between">
+                  <Button variant="info" onClick={() => navigate(`rooms/${pg.id}`)}>
+                    View Details
+                  </Button>
+                  <Button variant="warning" onClick={() => setEditPG(pg.id)}>
+                    Edit
+                  </Button>
+                  <Button variant="danger" onClick={() => handleDelete(pg.id)}>
+                    Delete
+                  </Button>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
         ))}
-      </div>
+      </Row>
 
       {editPG && (
-        <div className="mt-4 p-3 border rounded">
+        <div className="mt-4 p-4 border rounded bg-light shadow">
           <h4>Edit PG</h4>
-          <input
-            type="text"
-            className="form-control mb-2"
-            placeholder="PG Name"
-            value={updatedData.pgName || ""}
-            onChange={(e) => setUpdatedData({ ...updatedData, pgName: e.target.value })}
-          />
-          <input
-            type="text"
-            className="form-control mb-2"
-            placeholder="Address"
-            value={updatedData.address || ""}
-            onChange={(e) => setUpdatedData({ ...updatedData, address: e.target.value })}
-          />
-          <input
-            type="number"
-            className="form-control mb-2"
-            placeholder="Total Rooms"
-            value={updatedData.totalRooms || ""}
-            onChange={(e) => setUpdatedData({ ...updatedData, totalRooms: e.target.value })}
-          />
-          <button className="btn btn-success me-2" onClick={handleUpdate}>Save Changes</button>
-          <button className="btn btn-secondary" onClick={() => setEditPG(null)}>Cancel</button>
+          <Form>
+            <Form.Group className="mb-2">
+              <Form.Label>PG Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="PG Name"
+                value={updatedData.pgName || ""}
+                onChange={(e) => setUpdatedData({ ...updatedData, pgName: e.target.value })}
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-2">
+              <Form.Label>Address</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Address"
+                value={updatedData.address || ""}
+                onChange={(e) => setUpdatedData({ ...updatedData, address: e.target.value })}
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-2">
+              <Form.Label>Total Rooms</Form.Label>
+              <Form.Control
+                type="number"
+                placeholder="Total Rooms"
+                value={updatedData.totalRooms || ""}
+                onChange={(e) => setUpdatedData({ ...updatedData, totalRooms: e.target.value })}
+              />
+            </Form.Group>
+
+            <Button variant="success" className="me-2" onClick={handleUpdate}>
+              Save Changes
+            </Button>
+            <Button variant="secondary" onClick={() => setEditPG(null)}>
+              Cancel
+            </Button>
+          </Form>
         </div>
       )}
-    </div>
+    </Container>
   );
 };
 

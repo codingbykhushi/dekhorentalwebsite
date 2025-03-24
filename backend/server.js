@@ -1,14 +1,9 @@
 import dotenv from "dotenv"; 
 dotenv.config();
+
 import express from "express";
 import cors from "cors";
 import path from "path";
-import helmet from "helmet";
-import morgan from "morgan";
-import rateLimit from "express-rate-limit";
-
-
-
 
 import OwnerRouter from "./Routes/ownerRouter.js";
 import EmployeeRouter from "./Routes/employeeRouter.js";
@@ -23,24 +18,15 @@ import Complaintrouter from "./Routes/ComplaintRoutes.js";
 import ReadingRouter from "./Routes/ReadingRoutes.js";
 import PGMaintenanceRouter from "./Routes/PGMaintnanceRoutes.js";
 import PaymentRouter from "./Routes/PaymentRoutes.js";
+import BookingRouter from "./Routes/BookingRoutes.js";
 
 
 
 
 const app = express();
 
-app.use(helmet()); // Secure headers set karega
 app.use(cors());
 app.use(express.json()); 
-app.use(morgan("dev")); // Logging ke liye
-
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Har IP ke liye max 100 requests
-});
-app.use(limiter);
-
-
 
 // Routes
 app.use("/api/owners", OwnerRouter);
@@ -55,6 +41,7 @@ app.use("/api/complaints",Complaintrouter);
 app.use("/api/readings",ReadingRouter);
 app.use("/api/maintnance",PGMaintenanceRouter);
 app.use("/api/payments",PaymentRouter);
+app.use("/api/bookings",BookingRouter);
 app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 
 
@@ -62,10 +49,10 @@ app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 console.log("JWT Secret:", process.env.JWT_SECRET);
 
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.listen(3001, () => {
+  console.log("Server started on port 3001");
 });
+
 const syncDatabase = async () => {
   try {
    
@@ -78,7 +65,3 @@ const syncDatabase = async () => {
 };
 
 syncDatabase();
-
-
-
-

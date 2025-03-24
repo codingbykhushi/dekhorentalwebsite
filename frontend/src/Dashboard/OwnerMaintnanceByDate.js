@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../css/Maintnance.css'
+import "bootstrap/dist/css/bootstrap.min.css";
+import '../css/Maintnance.css';
 
 const MaintenanceByDate = () => {
   const [month, setMonth] = useState('');
@@ -14,7 +15,6 @@ const MaintenanceByDate = () => {
       return;
     }
     setLoading(true);
-   
     axios.get(`http://localhost:3001/api/maintnance/pg-maintenance?month=${month}&year=${year}`)
       .then(response => {
         setRecords(response.data.data);
@@ -27,85 +27,79 @@ const MaintenanceByDate = () => {
   };
 
   return (
-    <div className="container" style={{ padding: '20px' }}>
-      <h2>Select Month and Year for Maintenance Data</h2>
-      <div className="date-selector" style={{ marginBottom: '20px' }}>
-        <select 
-          value={month} 
-          onChange={(e) => setMonth(e.target.value)}
-          style={{ padding: '8px', marginRight: '10px' }}
-        >
-          <option value="">Select Month</option>
-          <option value="January">January</option>
-          <option value="February">February</option>
-          <option value="March">March</option>
-          <option value="April">April</option>
-          <option value="May">May</option>
-          <option value="June">June</option>
-          <option value="July">July</option>
-          <option value="August">August</option>
-          <option value="September">September</option>
-          <option value="October">October</option>
-          <option value="November">November</option>
-          <option value="December">December</option>
-        </select>
-        <input 
-          type="number" 
-          placeholder="Year" 
-          value={year} 
-          onChange={(e) => setYear(e.target.value)}
-          style={{ padding: '8px', width: '100px', marginRight: '10px' }}
-        />
-        <button onClick={handleFetch} style={{ padding: '8px 16px', cursor: 'pointer' }}>
-          Get Maintenance
-        </button>
-      </div>
+    <div className="container mt-5">
+      <div className="card p-4 shadow border-0 rounded-3">
+        <h2 className="text-center mb-4 text-primary">PG Maintenance Overview</h2>
+        <div className="row mb-3 align-items-center justify-content-center">
+          <div className="col-md-4">
+            <select className="form-select shadow-sm" value={month} onChange={(e) => setMonth(e.target.value)}>
+              <option value="">Select Month</option>
+              {[
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+              ].map(m => <option key={m} value={m}>{m}</option>)}
+            </select>
+          </div>
+          <div className="col-md-3">
+            <input 
+              type="number" 
+              className="form-control shadow-sm" 
+              placeholder="Year" 
+              value={year} 
+              onChange={(e) => setYear(e.target.value)}
+            />
+          </div>
+          <div className="col-md-3">
+            <button className="btn btn-primary w-100 shadow-sm" onClick={handleFetch}>Get Maintenance</button>
+          </div>
+        </div>
 
-      {loading ? (
-        <p>Loading maintenance records...</p>
-      ) : (
-        <>
-          {records.length === 0 ? (
-            <p>No maintenance records found for {month} {year}.</p>
-          ) : (
-            <div className='table-responsive'>
-              <h3>Maintenance Records for {month} {year}</h3>
-              <table className="table" style={{ width: '100%', borderCollapse: 'collapse' }}>
-                <thead>
-                  <tr>
-                    <th style={{ border: '1px solid #ddd', padding: '8px' }}>PG Name</th>
-                    <th style={{ border: '1px solid #ddd', padding: '8px' }}>Owner Name</th>
-                    <th style={{ border: '1px solid #ddd', padding: '8px' }}>Owner ID</th>
-                    <th style={{ border: '1px solid #ddd', padding: '8px' }}>Total Rooms</th>
-                    <th style={{ border: '1px solid #ddd', padding: '8px' }}>Booked Room Count</th>
-                    <th style={{ border: '1px solid #ddd', padding: '8px' }}>Booked Room Names</th>
-                    <th style={{ border: '1px solid #ddd', padding: '8px' }}>Income</th>
-                    <th style={{ border: '1px solid #ddd', padding: '8px' }}>Commission</th>
-                    <th style={{ border: '1px solid #ddd', padding: '8px' }}>Expenditure</th>
-                    <th style={{ border: '1px solid #ddd', padding: '8px' }}>Expenditure Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {records.map((record, idx) => (
-                    <tr key={idx}>
-                      <td style={{ border: '1px solid #ddd', padding: '8px' }}>{record.pgName}</td>
-                      <td style={{ border: '1px solid #ddd', padding: '8px' }}>{record.ownerName}</td>
-                      <td style={{ border: '1px solid #ddd', padding: '8px' }}>{record.ownerId}</td>
-                      <td style={{ border: '1px solid #ddd', padding: '8px' }}>{record.totalRooms}</td>
-                      <td style={{ border: '1px solid #ddd', padding: '8px' }}>{record.bookedRoomCount}</td>
-                      <td style={{ border: '1px solid #ddd', padding: '8px' }}>{record.bookedRoomNames}</td>
-                      <td style={{ border: '1px solid #ddd', padding: '8px' }}>{record.income}</td>
-                      <td style={{ border: '1px solid #ddd', padding: '8px' }}>{record.commission}</td>
-                      <td style={{ border: '1px solid #ddd', padding: '8px' }}>{record.expenditure}</td>
-                      <td style={{ border: '1px solid #ddd', padding: '8px' }}>{record.expenditureDescription}</td>
+        {loading ? (
+          <p className="text-center text-muted">Loading maintenance records...</p>
+        ) : (
+          <>
+            {records.length === 0 ? (
+              <p className="text-center text-danger">No records found for {month} {year}.</p>
+            ) : (
+              <div className="table-responsive">
+                <h3 className="text-center my-3 text-secondary">Maintenance Records for {month} {year}</h3>
+                <table className="table table-bordered table-hover">
+                  <thead className="text-white" style={{ background: "linear-gradient(45deg, #007bff, #6610f2)" }}>
+                    <tr>
+                      <th>PG Name</th>
+                      <th>Owner Name</th>
+                      <th>Owner ID</th>
+                      <th>Total Rooms</th>
+                      <th>Booked Room Count</th>
+                      <th>Booked Room Names</th>
+                      <th>Income</th>
+                      <th>Commission</th>
+                      <th>Expenditure</th>
+                      <th>Expenditure Description</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
-        </>
-      )}
+                  </thead>
+                  <tbody>
+                    {records.map((record, idx) => (
+                      <tr key={idx} className={idx % 2 === 0 ? "bg-light" : "bg-white"}>
+                        <td>{record.pgName}</td>
+                        <td>{record.ownerName}</td>
+                        <td>{record.ownerId}</td>
+                        <td>{record.totalRooms}</td>
+                        <td>{record.bookedRoomCount}</td>
+                        <td>{record.bookedRoomNames}</td>
+                        <td className="text-success fw-bold">₹{record.income}</td>
+                        <td className="text-primary fw-bold">₹{record.commission}</td>
+                        <td className="text-danger fw-bold">₹{record.expenditure}</td>
+                        <td>{record.expenditureDescription}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </>
+        )}
+      </div>
     </div>
   );
 };

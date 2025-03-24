@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import TenantSidebar from "../Component/TenantSidebar.js"
 
+ 
 const TenantHome = () => {
   const [pgs, setPgs] = useState([]);
   const navigate = useNavigate();
@@ -19,7 +21,10 @@ const TenantHome = () => {
   }, []);
 
   return (
+    <div className="admin-dashboard">
+      <TenantSidebar />
     <div className="container mt-4">
+      
       <div className="row">
         {pgs.map((pg) => (
           <div key={pg.id} className="col-md-4">
@@ -46,6 +51,7 @@ const TenantHome = () => {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../css/InqueryData.css"
+import "../css/InqueryData.css";
 
 const InqueryData = () => {
   const [contacts, setContacts] = useState([]);
@@ -10,9 +10,9 @@ const InqueryData = () => {
 
   const fetchContacts = async () => {
     try {
-      const response = await fetch("http://localhost:3001/api/contacts/getContacts"); // ✅ Fixed API path
+      const response = await fetch("http://localhost:3001/api/contacts/getContacts");
       const data = await response.json();
-      
+
       if (data.success) {
         setContacts(data.contacts);
       } else {
@@ -24,34 +24,36 @@ const InqueryData = () => {
   };
 
   return (
-    <div>
+    <div className="inquiry-container">
       <h2>Contact Messages</h2>
-      <table border="1">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Contact</th>
-            <th>Message</th>
-          </tr>
-        </thead>
-        <tbody>
-          {contacts.length > 0 ? (
-            contacts.map((contact) => (
-              <tr key={contact.id}>
-                <td>{contact.name}</td>
-                <td>{contact.email}</td>
-                <td>{contact.contact}</td>
-                <td>{contact.message}</td>
-              </tr>
-            ))
-          ) : (
+      <div className="table-responsive">
+        <table>
+          <thead>
             <tr>
-              <td colSpan="4">No contacts found</td>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Contact</th>
+              <th>Message</th>
             </tr>
-          )}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {contacts.length > 0 ? (
+              contacts.map((contact) => (
+                <tr key={contact.id}>
+                  <td>{contact.name}</td>
+                  <td>{contact.email}</td>
+                  <td>{contact.contact}</td>
+                  <td>{contact.message}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="4">No contacts found</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

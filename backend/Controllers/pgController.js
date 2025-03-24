@@ -1,4 +1,5 @@
 import PG from "../Models/PGModel.js";
+import { Op } from "sequelize"; 
 
 
 export const addPG = async (req, res) => {
@@ -53,6 +54,39 @@ export const getAllPGs = async (req, res) => {
       res.status(500).json({ message: "Server error" });
     }
   };
+ // ✅ Sequelize ka Op import karna zaroori hai
+
+export const getPGsByCity = async (req, res) => {
+    try {
+        const { city } = req.query; // ✅ Query params se city ka naam lo
+
+        if (!city) {
+            return res.status(400).json({ message: "City name is required" });
+        }
+
+        const pgs = await PG.findAll({
+            where: { 
+                address: { [Op.like]: `%${city}%` } // ✅ Address me city ka naam match karega
+            },
+            attributes: ["id", "name", "address", "totalRooms", "image", "ownerId"],
+        });
+
+        const updatedPGs = pgs.map(pg => ({
+            id: pg.id,
+            ownerId: pg.ownerId,
+            pgName: pg.name,
+            address: pg.address,
+            totalRooms: pg.totalRooms,
+            img: pg.image ? `http://localhost:3001/${pg.image.replace(/\\/g, "/")}` : null,
+        }));
+
+        res.status(200).json(updatedPGs);
+    } catch (error) {
+        console.error("During the fetch city-based pg error:", error);
+        res.status(500).json({ message: "Server error" });
+    }
+};
+
 
   export const getOwnerPG = async (req, res) => {
     try {

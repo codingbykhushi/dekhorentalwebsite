@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { OffersContext } from "../Component/context/OfferContext";
 import "../css/OfferForm.css";
-import gift from "../img/gift.png";
+import offerImg from "../img/offer.jpg"; // Background image import
 
 const OfferForm = () => {
   const { offers, addOffer, deleteOffer } = useContext(OffersContext);
@@ -13,7 +13,12 @@ const OfferForm = () => {
     e.preventDefault();
     if (!offerTitle || !description || !discount)
       return alert("Fill all fields");
-    addOffer({ title: offerTitle, description, discount: `${discount}% OFF` });
+    addOffer({ 
+      title: offerTitle, 
+      description, 
+      discount: `${discount}% OFF`, 
+      bgImage: offerImg // Adding background image
+    });
     setOfferTitle("");
     setDescription("");
     setDiscount("");
@@ -55,9 +60,19 @@ const OfferForm = () => {
       <h2 className="mt-5 text-center">Manage Offers</h2>
       <div className="offers-list-container">
         {offers.map((offer) => (
-          <div className="offerDiv" key={offer.id}>
+          <div 
+            className="offerDiv" 
+            key={offer.id}
+            style={{
+              backgroundImage: `url(${offerImg})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              color: "white",
+              padding: "20px",
+              borderRadius: "10px",
+            }}
+          >
             <div className="d-flex">
-              <img src={gift} style={{ width: "50px", height: "40px" }} alt="gift" />
               <h3 className="mt-2">{offer.title}</h3>
             </div>
             <p>{offer.description}</p>

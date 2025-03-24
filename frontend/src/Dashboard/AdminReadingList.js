@@ -33,38 +33,41 @@ const ReadingsList = () => {
       ) : readings.length === 0 ? (
         <p>No readings found</p>
       ) : (
-        <Table striped bordered hover responsive>
-          <thead className="bg-primary text-white">
-            <tr>
-              <th>ID</th>
-              <th>PG Name</th>
-              <th>Room No</th>
-              <th>Previous Reading</th>
-              <th>Current Reading</th>
-              <th>Rate Per Unit</th>
-              <th>Total Units</th>
-              <th>Bill Amount</th>
-              <th>From Date</th>
-              <th>To Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {readings.map((reading) => (
-              <tr key={reading.id}>
-                <td>{reading.id}</td>
-                <td>{reading.pgName}</td>
-                <td>{reading.roomNo}</td>
-                <td>{reading.previousReading}</td>
-                <td>{reading.currentReading}</td>
-                <td>{reading.ratePerUnit}</td>
-                <td>{reading.totalUnits}</td>
-                <td>{reading.billAmount}</td>
-                <td>{new Date(reading.fromDate).toLocaleDateString()}</td>
-                <td>{new Date(reading.toDate).toLocaleDateString()}</td>
+        // 🔹 Proper scrolling ke liye wrapper div with width & overflow styles
+        <div style={{ width: "100%", overflowX: "auto" }}>
+          <Table striped bordered hover responsive style={{ minWidth: "1500px" }}>
+            <thead className="bg-primary text-white">
+              <tr>
+                <th>ID</th>
+                <th>PG Name</th>
+                <th>Room No</th>
+                <th>Previous Reading</th>
+                <th>Current Reading</th>
+                <th>Rate Per Unit</th>
+                <th>Total Units</th>
+                <th>Bill Amount</th>
+                <th>From Date</th>
+                <th>To Date</th>
               </tr>
-            ))}
-          </tbody>
-        </Table>
+            </thead>
+            <tbody>
+              {readings.map((reading) => (
+                <tr key={reading.id}>
+                  <td>{reading.id}</td>
+                  <td>{reading.pgName}</td>
+                  <td>{reading.roomNo}</td>
+                  <td>{reading.previousReading}</td>
+                  <td>{reading.currentReading}</td>
+                  <td>{reading.ratePerUnit}</td>
+                  <td>{reading.totalUnits}</td>
+                  <td>{reading.billAmount}</td>
+                  <td>{new Date(reading.fromDate).toLocaleDateString()}</td>
+                  <td>{new Date(reading.toDate).toLocaleDateString()}</td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </div>
       )}
     </Container>
   );

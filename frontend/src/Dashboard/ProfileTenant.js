@@ -13,8 +13,10 @@ const ProfilePage = () => {
   }, []);
 
   return (
+    <div className='Container-Profile'>
+
     <div className='profile-container'>
-      <h2>Tenant Profile</h2>
+      <h2 className='profile-heading'>Tenant Profile</h2>
       {tenant ? (
         <div className='profile-details'>
           <p><strong>Tenant Id:</strong> {tenant.id}</p>
@@ -31,6 +33,7 @@ const ProfilePage = () => {
       ) : (
         <p>Loading...</p>
       )}
+    </div>
     </div>
   );
 };

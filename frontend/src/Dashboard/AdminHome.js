@@ -30,7 +30,7 @@ const AdminHome = () => {
        
         <div className="content-overlay">
        
-          <div className="button-group mt-3">
+          <div className="button-group mt-5">
             <button className="btn btn-primary" onClick={() => navigate("/admin/ownersList")}>
               Owner List
             </button>

@@ -1,126 +1,257 @@
-/* Welcome.css */
-html,
-body {
-    margin: 0;
-    height: 100%;
-}
 
 .fullscreen-container {
-    position: relative;
-    width: 100vw;
-    /* Full viewport width */
-    height: 100vh;
-    /* Full viewport height */
-    overflow: hidden;
-    /* Hide overflow to prevent scroll bars */
+  position: relative;
+  width: 100vw;
+  /* Full viewport width */
+  height: 100vh;
+  /* Full viewport height */
+  overflow: hidden;
+  /* Hide overflow to prevent scroll bars */
 }
 
 .background-image {
-    position: absolute;
-    /* Position absolutely within the container */
-    top: 0;
-    left: 0;
-    margin-top: 6%;
-    width: 100%;
-    /* Cover the full width of the container */
-    height: 85%;
-    /* Cover the full height of the container */
-    object-fit: cover;
-    /* Maintain aspect ratio and cover container */
+  position: absolute;
+  /* Position absolutely within the container */
+  top: 0;
+  left: 0;
+  margin-top: 6%;
+  width: 100%;
+  /* Cover the full width of the container */
+  height: 85%;
+  /* Cover the full height of the container */
+  object-fit: cover;
+  /* Maintain aspect ratio and cover container */
 }
 
 .text-overlay {
-    position: absolute;
-    /* Position text absolutely within the container */
-    top: 50%;
-    /* Center text vertically */
-    left: 50%;
-    /* Center text horizontally */
-    transform: translate(-50%, -50%);
-    /* Adjust for exact center */
-    color: white;
-    /* Set text color */
-    text-align: center;
-    /* Center-align text */
-    padding: 20px;
-    /* Optional: Add padding for readability */
-    
-    /* Optional: Add a semi-transparent background */
-    border-radius: 10px;
-    /* Optional: Round the corners */
+  position: absolute;
+  /* Position text absolutely within the container */
+  top: 50%;
+  /* Center text vertically */
+  left: 50%;
+  /* Center text horizontally */
+  transform: translate(-50%, -50%);
+  /* Adjust for exact center */
+  color: white;
+  /* Set text color */
+  text-align: center;
+  /* Center-align text */
+  padding: 20px;
+  /* Optional: Add padding for readability */
+  
+  /* Optional: Add a semi-transparent background */
+  border-radius: 10px;
+  /* Optional: Round the corners */
 }
 
 h1,
 p {
-    margin: 0;
-    /* Remove default margins */
+  margin: 0;
+  /* Remove default margins */
 }
 
 
 
 .homeBtn{
-    width:50px;
-    height: 50px;
-    background-color: rgb(255, 0, 93);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    border-radius: 50%;
+  width:50px;
+  height: 50px;
+  background-color: rgb(255, 0, 93);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 50%;
 }
 .home-container {
-    width: 90%;
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-    text-align: center;
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+.card {
+  min-height: 150px; /* Adjust height */
+  overflow: hidden;
+}
+
+
+
+.offers-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  background-image: url("../img/offerbg.png");
+  height: 200px;
+  width: 300px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+/* Offer Card Styling */
+.offers-card {
+  height: 220px;
+  width: 320px;
+  margin-top: 30px;
+  background-color: rgb(6, 18, 68);
+  opacity: 0.9;
+  padding: 20px;
+  position: relative;
+  margin-left: 50px;
+  border-radius: 20px;
+}
+
+/* Offer Details */
+.offers-details {
+  font-size: 15px;
+  color: aliceblue;
+  text-decoration: solid white;
+}
+
+/* ✅ Responsive Media Queries */
+
+/* For Tablets (width < 1024px) */
+@media (max-width: 1024px) {
+  .offers-card {
+    width: 280px;
+    height: 200px;
+    margin-left: 20px;
   }
-  .card {
-    min-height: 150px; /* Adjust height */
-    overflow: hidden;
+  .offers-details {
+    font-size: 14px;
   }
-  
-  
-  .offers-section {
-    margin: 50px auto;
-    padding: 20px;
-    text-align: center;
-    background: linear-gradient(to bottom, #f5f5f5, white);
-  }
-  
+}
+
+/* For Mobile Screens (width < 768px) */
+@media (max-width: 768px) {
   .offers-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
   }
-  
-  .offer-card {
-    position: relative;
-    width: 250px;
-    height: 300px;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  .offers-card {
+    width: 90%; /* Full width with padding */
+    height: auto;
+    margin: 10px 0;
   }
-  
-  .offer-image img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
+  .offers-details {
+    font-size: 13px;
+    text-align: center;
   }
-  
-  .offer-details {
-    position:fixed;
-    bottom: 50px;
-    width: 50%;
-    background: white;
+}
+
+/* For Small Mobile Screens (width < 480px) */
+@media (max-width: 480px) {
+  .offers-card {
+    width: 95%;
     padding: 15px;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-    transition: bottom 0.3s ease-in-out;
   }
-  
-  .offer-card:hover .offer-details {
-    bottom: 0;
+  .offers-details {
+    font-size: 12px;
   }
-  
+}
+
+
+
+/* Cities Grid Section */
+.cities-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 20px;
+padding: 20px;
+}
+
+/* City Card */
+
+.city-card:hover {
+transform: scale(1.1);
+}
+
+/* City Image */
+.city-card img {
+width: 80px;
+height: 80px;
+border-radius: 50%;
+object-fit: cover;
+border: 2px solid #ddd;
+}
+
+/* City Name */
+.city-card p {
+margin-top: 10px;
+font-size: 14px;
+font-weight: bold;
+color: #333;
+}
+
+/* Media Queries for Different Screens */
+
+/* ✅ For Tablets (768px and below) */
+@media (max-width: 768px) {
+.cities-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Auto-fit columns */
+  gap: 15px;
+}
+
+.city-card {
+  width: 100%; /* Full width for better alignment */
+}
+
+.city-card img {
+  width: 70px;
+  height: 70px;
+}
+
+.city-card p {
+  font-size: 13px;
+}
+}
+
+/* ✅ For Mobile Screens (480px and below) */
+@media (max-width: 480px) {
+.cities-container {
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 10px;
+}
+
+.city-card {
+  width: 90px;
+  padding: 8px;
+}
+
+.city-card img {
+  width: 60px;
+  height: 60px;
+}
+
+.city-card p {
+  font-size: 12px;
+}
+}
+
+/* ✅ For Very Small Screens (360px and below) */
+@media (max-width: 360px) {
+.cities-container {
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 8px;
+}
+
+.city-card {
+  width: 80px;
+}
+
+.city-card img {
+  width: 50px;
+  height: 50px;
+}
+
+.city-card p {
+  font-size: 10px;
+}
+}
+
+

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../css/Complaint.css"
 
 const ComplaintForm = () => {
   const [formData, setFormData] = useState({
@@ -58,8 +59,9 @@ const ComplaintForm = () => {
   };
 
   return (
-    <div className="container mt-4">
-      <h2 className="text-center text-primary mb-3">Register Complaint</h2>
+    <div className="complaint-container">
+    <div className="complaint-form mt-4">
+      <h2>Register Complaint</h2>
 
       {message && <p className="text-center text-success">{message}</p>}
 
@@ -120,7 +122,7 @@ const ComplaintForm = () => {
           </div>
         </div>
       </form>
-     
+      </div>
     </div>
     
   );

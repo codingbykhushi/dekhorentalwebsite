@@ -22,8 +22,6 @@ import OfferForm from "./OfferForm.js";
 import ReadingForm from "./ReadingForm.js";
 import ReadingsList from "./AdminReadingList.js";
 import AdminMaintenanceForm from "./MaintnaceFormAdmin.js";
-// import DetailedPGMaintenanceChart from "./OwnerPGMaintenaceChart.js";
-// import MonthlyMaintenanceTables from "./OwnerPGMaintenaceChart.js";
 import MaintenanceByDate from "./OwnerMaintnanceByDate.js";
 
 

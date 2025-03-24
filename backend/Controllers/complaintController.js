@@ -1,4 +1,4 @@
-import Complaint from "../Models/complaint.js";
+import Complaint from "../models/Complaint.js";
 import RoomsAvailable from "../Models/RoomsAvailable.js";
 import PG from "../Models/PGModel.js";
 import Tenant from "../Models/tenantModel.js";
@@ -13,6 +13,7 @@ const createComplaint = async (req, res) => {
       return res.status(400).json({ success: false, message: "PG not found" });
     }
 
+    
     const room = await RoomsAvailable.findOne({
       where: { name: RoomName, roomNumber: roomNumber, pgId: pg.id },
     });
