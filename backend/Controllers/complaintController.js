@@ -1,4 +1,4 @@
-import Complaint from "../models/Complaint.js";
+ 
 import RoomsAvailable from "../Models/RoomsAvailable.js";
 import PG from "../Models/PGModel.js";
 import Tenant from "../Models/tenantModel.js";
