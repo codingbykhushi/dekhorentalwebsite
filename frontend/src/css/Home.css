@@ -2,52 +2,49 @@
 .fullscreen-container {
   position: relative;
   width: 100vw;
-  /* Full viewport width */
+
   height: 100vh;
-  /* Full viewport height */
+
   overflow: hidden;
-  /* Hide overflow to prevent scroll bars */
+
 }
 
 .background-image {
   position: absolute;
-  /* Position absolutely within the container */
+ 
   top: 0;
   left: 0;
   margin-top: 6%;
   width: 100%;
-  /* Cover the full width of the container */
+
   height: 85%;
-  /* Cover the full height of the container */
+ 
   object-fit: cover;
-  /* Maintain aspect ratio and cover container */
+
 }
 
 .text-overlay {
   position: absolute;
-  /* Position text absolutely within the container */
-  top: 50%;
-  /* Center text vertically */
-  left: 50%;
-  /* Center text horizontally */
-  transform: translate(-50%, -50%);
-  /* Adjust for exact center */
-  color: white;
-  /* Set text color */
-  text-align: center;
-  /* Center-align text */
-  padding: 20px;
-  /* Optional: Add padding for readability */
   
-  /* Optional: Add a semi-transparent background */
+  top: 50%;
+
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  color: white;
+
+  text-align: center;
+ 
+  padding: 20px;
   border-radius: 10px;
-  /* Optional: Round the corners */
+
 }
 
 h1,
 p {
   margin: 0;
-  /* Remove default margins */
+
 }
 
 

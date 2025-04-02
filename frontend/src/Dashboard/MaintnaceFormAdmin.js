@@ -12,6 +12,7 @@ const AdminMaintenanceForm = () => {
     bookedRoomNames: [],
     income: '',
     commission: '',
+    Housekeepingcharge:'',
     expenditure: '',
     expenditureDescription: '',
     month: '',
@@ -50,6 +51,7 @@ const AdminMaintenanceForm = () => {
           bookedRoomNames: [],
           income: '',
           commission: '',
+          Housekeepingcharge:'',
           expenditure: '',
           expenditureDescription: '',
           month: '',
@@ -202,7 +204,7 @@ const AdminMaintenanceForm = () => {
 
             <div className="col-md-6">
               <div className="form-group">
-                <label>Admin Commission</label>
+                <label>Dekho rentals commission</label>
                 <input 
                   type="number" 
                   name="commission" 
@@ -214,19 +216,35 @@ const AdminMaintenanceForm = () => {
               </div>
             </div>
           </div>
+          <div className="row">
+            <div className="col-md-6">
+              <div className="form-group">
+                <label>Housekeeping charge</label>
+                <input 
+                  type="number" 
+                  name="Housekeepingcharge" 
+                  value={formData.Housekeepingcharge} 
+                  onChange={handleChange} 
+                  className="form-control"
+                  required 
+                />
+              </div>
+            </div>
 
-          <div className="form-group">
-            <label>Expenditure</label>
-            <input 
-              type="number" 
-              name="expenditure" 
-              value={formData.expenditure} 
-              onChange={handleChange} 
-              className="form-control"
-              required 
-            />
+            <div className="col-md-6">
+              <div className="form-group">
+                <label>Expenditure</label>
+                <input 
+                  type="number" 
+                  name="expenditure" 
+                  value={formData.expenditure} 
+                  onChange={handleChange} 
+                  className="form-control"
+                  required 
+                />
+              </div>
+            </div>
           </div>
-
           <div className="form-group">
             <label>Expenditure Description</label>
             <textarea 

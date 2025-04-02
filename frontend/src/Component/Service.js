@@ -12,6 +12,8 @@ import ser6 from "../img/6.jpg";
 import ser7 from "../img/7.jpg";
 import ser8 from "../img/8.png";
 import ser9 from "../img/9.webp";
+import laundryImg from  "../img/laoundry.jpeg";
+import foodImg from "../img/foodd.jpeg";
 
 function Services() {
   const navigate = useNavigate();
@@ -154,6 +156,25 @@ function Services() {
               </p>
             </div>
           </div>
+          <div className="row mt-4">
+          <div className="col-md-6 text-center">
+            <div className="service-card">
+              <img src={laundryImg} alt="Laundry Service" className="service-img" />
+              <h3>Hassle-Free Laundry</h3>
+              <p>Enjoy clean clothes without any effort. Pickup & delivery available.</p>
+              <a href="https://www.wowlaundry.in/" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Visit Website</a>
+            </div>
+          </div>
+
+          <div className="col-md-6 text-center">
+            <div className="service-card">
+              <img src={foodImg} alt="Food Service" className="service-img" />
+              <h3>Delicious Home-Cooked Meals</h3>
+              <p>Order fresh, homemade food delivered to your doorstep.</p>
+              <a href="https://foodwebsite.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Visit Website</a>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -170,6 +191,7 @@ function Services() {
           Explore Now
         </button>
       </div>
+    </div>
     </div>
   );
 }

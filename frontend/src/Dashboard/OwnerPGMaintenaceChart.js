@@ -47,6 +47,7 @@ const MonthlyMaintenanceTables = () => {
                       <th>Booked Room Names</th>
                       <th>Income</th>
                       <th>Commission</th>
+                      <th>Housekeeping Charge</th>
                       <th>Expenditure</th>
                       <th>Expenditure Description</th>
                     </tr>
@@ -62,6 +63,7 @@ const MonthlyMaintenanceTables = () => {
                         <td>{record.bookedRoomNames}</td>
                         <td>{record.income}</td>
                         <td>{record.commission}</td>
+                        <td>{record.Housekeepingcharge}</td>
                         <td>{record.expenditure}</td>
                         <td>{record.expenditureDescription}</td>
                       </tr>

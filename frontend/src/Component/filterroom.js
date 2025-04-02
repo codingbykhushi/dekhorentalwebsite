@@ -5,7 +5,7 @@ import MyNavbar from "./Navbar";
 import roombk from "../img/roomsback.jpg";
 import { Modal, Button } from "react-bootstrap"; // ✅ Bootstrap Modal Import
 
-const RoomsDetails = () => {
+const FilterRoomsDetails = () => {
   const { pgId } = useParams();
   const [rooms, setRooms] = useState([]);
   const [error, setError] = useState("");
@@ -134,4 +134,4 @@ const RoomsDetails = () => {
   );
 };
 
-export default RoomsDetails;
+export default FilterRoomsDetails;

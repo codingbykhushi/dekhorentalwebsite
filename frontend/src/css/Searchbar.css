@@ -1,45 +1,71 @@
-/* SearchBar.css */
-.search-bar-container {
+/* Search Bar Container */
+.search-controls{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    padding: 10px;
-    background-color: #f7f7f7;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px 0;
-    flex-wrap: nowrap;
-    /* Ensure items don't wrap to the next line */
+   max-width: 900px;
+    padding: 20px;
+    background-color: #00539c; /* Background fixed */
+    
+   
+}
+.search-container{
+    display: flex;
+    max-width: 700px;
+    
+   
+    gap: 5px;
 }
 
-.search-input {
-    padding: 10px;
+.pgg-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    gap: 5px; /* Reduce the gap */
+    padding: 20px;
+    max-width: 100%;
+}
+
+.pg-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 130px; /* Fixed width */
+    padding: 5px;
+}
+
+.pg-image img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
     border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
-    width: 100%;
-    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.pg-image p {
+   font-size: 12px;
+   font-weight:bolder;
+   color: #ffffffff;
+
+   }
+
+/* ✅ Fix uneven spacing */
+.pg-list > * {
+    flex: 1 1 auto; /* Ensure equal space distribution */
+    min-width: 80px; /* Prevents items from squeezing */
 }
 
-.search-input:focus {
-    border-color: #3399cc;
-    box-shadow: 0 0 8px rgba(51, 153, 204, 0.2);
-    outline: none;
-}
-
-.search-input::placeholder {
-    color: #888;
-    font-style: italic;
-}
-
+/* ✅ Mobile responsiveness */
 @media (max-width: 768px) {
-    .search-bar-container {
-        flex-direction: column;
-        gap: 5px;
+    .pgg-list {
+        gap: 10px; /* Reduce gap on small screens */
     }
-
-    .search-input {
-        width: 100%;
+    .pg-item {
+        width: 100px;
+    }
+    .pg-image img {
+        width: 90px;
+        height: 90px;
     }
 }

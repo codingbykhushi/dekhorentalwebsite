@@ -31,16 +31,12 @@ const AddOwner = () => {
         }
       );
 
-      if (res.data && res.data.owner) {  // ✅ Ensure response is correct
-        setGeneratedPassword(res.data.owner.password || "No password received"); 
-        alert("Owner added successfully"); 
+      console.log("Owner added:", res.data); // Log response
+      alert("Owner added successfully!");
         setOwner({ name: "", email: "", pgName: "", aadhaarNumber: "", password: "" });
-      } else {
-        throw new Error("Invalid response data");
       }
-
-    } catch (error) {
-      console.error("Error adding owner:", error);
+    catch (error) {
+      console.error("Error details:", error.response ? error.response.data : error.message);
       alert("Failed to add owner");
     }
   };

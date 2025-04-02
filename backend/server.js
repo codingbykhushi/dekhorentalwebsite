@@ -23,6 +23,7 @@ import BookingRouter from "./Routes/BookingRoutes.js";
 
 
 
+
 const app = express();
 
 app.use(cors());
@@ -42,6 +43,7 @@ app.use("/api/readings",ReadingRouter);
 app.use("/api/maintnance",PGMaintenanceRouter);
 app.use("/api/payments",PaymentRouter);
 app.use("/api/bookings",BookingRouter);
+
 app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 
 

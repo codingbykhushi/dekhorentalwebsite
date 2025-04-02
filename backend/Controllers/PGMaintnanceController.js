@@ -14,6 +14,7 @@ export const addPGMaintenance = async (req, res) => {
       bookedRoomNames, 
       income,
       commission,
+      Housekeepingcharge,
       expenditure,
       expenditureDescription
     } = req.body;
@@ -32,6 +33,7 @@ export const addPGMaintenance = async (req, res) => {
       bookedRoomNames: bookedRoomNamesStr,
       income,
       commission,
+      Housekeepingcharge,
       expenditure,
       expenditureDescription
     });

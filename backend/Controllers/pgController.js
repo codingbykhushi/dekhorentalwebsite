@@ -1,23 +1,25 @@
 import PG from "../Models/PGModel.js";
-import { Op } from "sequelize"; 
+
 
 
 export const addPG = async (req, res) => {
   try {
-    const { name, address, ownerId, totalRooms } = req.body;
+    const { name,state,city, address, ownerId, totalRooms } = req.body;
     console.log("Received Data:", req.body); 
 
     
     const image = req.file ? req.file.path : null;
 
     
-    if (!name || !address || !ownerId) {
+    if (!name ||!state ||!city || !address || !ownerId) {
       return res.status(400).json({ message: "All fields required" });
     }
 
     
     const newPG = await PG.create({
       name,
+      state,
+      city,
       address,
       ownerId,
       totalRooms: totalRooms || 0,
@@ -35,7 +37,7 @@ export const addPG = async (req, res) => {
 export const getAllPGs = async (req, res) => {
     try {
       const pgs = await PG.findAll({
-        attributes: ["id", "name", "address", "totalRooms", "image","ownerId"], 
+        attributes: ["id", "name","state","city", "address", "totalRooms", "image","ownerId"], 
       });
   
       
@@ -43,6 +45,8 @@ export const getAllPGs = async (req, res) => {
         id: pg.id,
         OwnerId:pg.ownerId,
         pgName: pg.name,
+        state:pg.state,
+        city:pg.city,
         address: pg.address,
         totalRooms: pg.totalRooms,
         img: pg.image ? `http://localhost:3001/${pg.image.replace(/\\/g, "/")}` : null, // ✅ Fix
@@ -56,35 +60,37 @@ export const getAllPGs = async (req, res) => {
   };
  // ✅ Sequelize ka Op import karna zaroori hai
 
-export const getPGsByCity = async (req, res) => {
-    try {
-        const { city } = req.query; // ✅ Query params se city ka naam lo
+ export const getPGByLocal = async (req, res) => {
+  try {
+    const { address } = req.params;
 
-        if (!city) {
-            return res.status(400).json({ message: "City name is required" });
-        }
-
-        const pgs = await PG.findAll({
-            where: { 
-                address: { [Op.like]: `%${city}%` } // ✅ Address me city ka naam match karega
-            },
-            attributes: ["id", "name", "address", "totalRooms", "image", "ownerId"],
-        });
-
-        const updatedPGs = pgs.map(pg => ({
-            id: pg.id,
-            ownerId: pg.ownerId,
-            pgName: pg.name,
-            address: pg.address,
-            totalRooms: pg.totalRooms,
-            img: pg.image ? `http://localhost:3001/${pg.image.replace(/\\/g, "/")}` : null,
-        }));
-
-        res.status(200).json(updatedPGs);
-    } catch (error) {
-        console.error("During the fetch city-based pg error:", error);
-        res.status(500).json({ message: "Server error" });
+    if (!address) {
+      return res.status(400).json({ message: "Address is required!" });
     }
+
+    const pgs = await PG.findAll({
+      where: { address: address }, 
+      attributes: [ "name", "state", "city", "address", "totalRooms", "image"],
+    });
+
+    if (!pgs.length) {
+      return res.status(404).json({ message: "No PG found for this address" });
+    }
+
+    const formattedPGs = pgs.map(pg => ({
+      pgName: pg.name,
+      state: pg.state,
+      city: pg.city,
+      address: pg.address,
+      totalRooms: pg.totalRooms,
+      img: pg.image ? `http://localhost:3001/${pg.image.replace(/\\/g, "/")}` : null,
+    }));
+
+    res.status(200).json(formattedPGs);
+  } catch (error) {
+    console.error("Error fetching PG by address:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
 };
 
 
@@ -98,7 +104,7 @@ export const getPGsByCity = async (req, res) => {
   
       const rooms = await PG.findAll({
         where: { ownerId: ownerId },
-        attributes: ["id", "name", "address", "totalRooms", "image", "ownerId"], 
+        attributes: ["id", "name","state","city", "address", "totalRooms", "image", "ownerId"], 
       });
   
       
@@ -106,6 +112,8 @@ export const getPGsByCity = async (req, res) => {
         id: room.id,
         ownerId: room.ownerId,
         pgName: room.name,
+        state:room.state,
+        city:room.city,
         address: room.address,
         totalRooms: room.totalRooms,
         img: room.image ? `http://localhost:3001/${room.image.replace(/\\/g, "/")}` : null, 
@@ -152,6 +160,8 @@ export const getPGsByCity = async (req, res) => {
      
       await pg.update({
         name: name || pg.name,
+        state:state || pg.state,
+        city:city || pg.city,
         address: address || pg.address,
         totalRooms: totalRooms || pg.totalRooms,
         image,

@@ -4,7 +4,7 @@ import backgroundImage from "../img/signbg.jpeg";
 import pgImage from "../img/button3.png";     
 import roomImage from "../img/button4.png";   
 
-const AddRoom = () => {
+const MaintainPgByEmployee = () => {
   // State for PG form
   const [formData, setFormData] = useState({
     name: "",
@@ -390,5 +390,5 @@ const AddRoom = () => {
   );
 };
 
-export default AddRoom;
+export default MaintainPgByEmployee;
 

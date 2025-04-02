@@ -18,6 +18,7 @@ import TenantLogin from "./Component/tenantsLogin.js";
 import RoomsDetails from "./Component/RoomDetails.js";
 import OffersProvider from "./Component/context/OfferContext.js";
 import FetchByCity from "./Component/FetchByCity.js";
+import FilterRoomsDetails from "./Component/filterroom.js";
 
 function App() {
   return (
@@ -26,7 +27,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/rooms" element={<Rooms />} />
-        <Route path="/pgs/filterPg/:city" element={<FetchByCity />} />
+        <Route path="/fetchByCity/:address" element={<FetchByCity />} />
+        <Route path="/filterroom/:pgId" element={<FilterRoomsDetails/>} />
+
+
         <Route path="/room-details/:pgId" element={<RoomsDetails/>} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/signIn" element={<Login />} />

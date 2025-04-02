@@ -43,6 +43,10 @@ const PGMaintenance = sequelize.define('PGMaintenance', {
     type: DataTypes.FLOAT,
     allowNull: false,
   },
+  Housekeepingcharge:{
+    type:DataTypes.STRING,
+    allowNull:false,
+  },
   expenditure: {
     type: DataTypes.FLOAT,
     allowNull: false,

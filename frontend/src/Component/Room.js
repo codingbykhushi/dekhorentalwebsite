@@ -62,6 +62,8 @@ const Rooms = () => {
                 />
                 <div className="card-body">
                   <p className="card-text"><strong>PG Name:</strong> {pg.pgName}</p>
+                  <p className="card-text"><strong>State:</strong> {pg.state}</p>
+                  <p className="card-text"><strong>City:</strong> {pg.city}</p>
                   <p className="card-text"><strong>Address:</strong> {pg.address}</p>
                   <p className="card-text"><strong>Total Rooms:</strong> {pg.totalRooms}</p>
                   {/* <p className="card-text">

@@ -74,6 +74,7 @@ const MaintenanceByDate = () => {
                       <th>Booked Room Names</th>
                       <th>Income</th>
                       <th>Commission</th>
+                      <th>Housekeepingcharge</th>
                       <th>Expenditure</th>
                       <th>Expenditure Description</th>
                     </tr>
@@ -89,6 +90,7 @@ const MaintenanceByDate = () => {
                         <td>{record.bookedRoomNames}</td>
                         <td className="text-success fw-bold">₹{record.income}</td>
                         <td className="text-primary fw-bold">₹{record.commission}</td>
+                        <td className="text-danger fw-bold">₹{record.Housekeepingcharge}</td>
                         <td className="text-danger fw-bold">₹{record.expenditure}</td>
                         <td>{record.expenditureDescription}</td>
                       </tr>
